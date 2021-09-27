@@ -55,6 +55,24 @@ namespace Ismetles
             Console.WriteLine(szamok2.Min());
             Console.WriteLine(szamok2.Max());
 
+            //Listák
+            List<int> szamlista = new List<int>();
+
+            szamlista.Add(15);
+            szamlista.Add(233);
+            szamlista.Add(788);
+
+            Console.WriteLine($"A lista elemszáma:{szamlista.Count}");
+
+            szamlista.RemoveAt(0);
+            szamlista.Remove(233);
+            
+
+            Console.WriteLine($"A lista elemszáma:{szamlista.Count}");
+
+
+
+
             Console.ReadKey();
         }
     }
