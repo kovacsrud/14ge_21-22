@@ -37,10 +37,14 @@ namespace Elemek
 
             Console.Write("Adjon meg egy vegyjelet:");
             var vegyjel = Console.ReadLine();
-            while (vegyjel.Length<1 || vegyjel.Length>2)
+
+            bool vaneszam = vegyjel.All(Char.IsLetter);
+
+            while (vegyjel.Length<1 || vegyjel.Length>2 || !vaneszam)
             {
                 Console.Write("Adjon meg egy vegyjelet:");
                 vegyjel = Console.ReadLine();
+                vaneszam = vegyjel.All(Char.IsLetter);
 
             }
 
@@ -57,6 +61,8 @@ namespace Elemek
             var okorUtan = elemek.FindAll(x => x.Ev != "Ókor");
 
             var maxKulonbseg = 0;
+
+            
 
             for (int i = 1; i < okorUtan.Count; i++)
             {
