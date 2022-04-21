@@ -30,6 +30,7 @@ namespace WpfNotepad
         private void Megnyitas_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "szövegek (*.txt)|*.txt|csv fájlok(*.csv)|*.csv|minden fájl (*.*)|*.*";
             if (dialog.ShowDialog()==true)
             {
                 try
@@ -47,12 +48,18 @@ namespace WpfNotepad
 
         private void MentesMaskent_Click(object sender,RoutedEventArgs e)
         {
+            Mentes_Maskent();
+        }
+
+        private void Mentes_Maskent()
+        {
             SaveFileDialog dialog = new SaveFileDialog();
-            if (dialog.ShowDialog()==true)
+            dialog.Filter = "szövegek (*.txt)|*.txt|csv fájlok(*.csv)|*.csv|minden fájl (*.*)|*.*";
+            if (dialog.ShowDialog() == true)
             {
                 try
                 {
-                    File.WriteAllText(dialog.FileName,textboxSzoveg.Text);
+                    File.WriteAllText(dialog.FileName, textboxSzoveg.Text);
                     this.Title = dialog.FileName;
                 }
                 catch (Exception ex)
@@ -60,6 +67,39 @@ namespace WpfNotepad
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void Mentes_Click(object sender,RoutedEventArgs e)
+        {
+            if (this.Title=="Notepad")
+            {
+                Mentes_Maskent();
+
+            } else
+            {
+                try
+                {
+                    File.WriteAllText(this.Title,textboxSzoveg.Text,Encoding.Default);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);                    
+                }
+            }
+
+        }
+
+        private void Nevjegy_Click(object sender,RoutedEventArgs e)
+        {
+            Nevjegy nevjegy = new Nevjegy();
+            nevjegy.ShowDialog();
+        }
+
+        private void Kilepes_Click(object sender,RoutedEventArgs e)
+        {
+
+            Environment.Exit(0);
+            
         }
 
         

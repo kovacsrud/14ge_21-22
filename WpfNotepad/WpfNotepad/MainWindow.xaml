@@ -8,19 +8,19 @@
         Title="Notepad" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="6*" />
         </Grid.RowDefinitions>
         <Menu VerticalAlignment="Center">
             <MenuItem Header="Fájl" FontSize="20">
                 <MenuItem Header="Megnyitás" Click="Megnyitas_Click"/>
-                <MenuItem Header="Mentés"/>
+                <MenuItem Header="Mentés" Click="Mentes_Click"/>
                 <MenuItem Header="Mentés Másként" Click="MentesMaskent_Click"/>
-                <MenuItem Header="Kilépés"/>
+                <MenuItem Header="Kilépés" Click="Kilepes_Click"/>
             </MenuItem>
             <MenuItem Header="Szerkesztés" FontSize="20"></MenuItem>
             <MenuItem Header="Segítség" FontSize="20">
-                <MenuItem Header="Névjegy"/>
+                <MenuItem Header="Névjegy" Click="Nevjegy_Click"/>
             </MenuItem>
         </Menu>
        <TextBox x:Name="textboxSzoveg" FontSize="20" AcceptsReturn="True" Grid.Row="1" VerticalScrollBarVisibility="Auto" />
